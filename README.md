@@ -27,7 +27,7 @@
 > ## ⚠️ IMPORTANT INFORMATION:
 > ### Don’t forget to check the sections where you may encounter issues with the plugin. Some problems may only appear after creating a packaged build, so it’s important to test it there as well. I highly recommend reading the entire documentation before using the plugin. If it is used incorrectly, it will not function properly.
 
-# Click here to learn how to use it.
+## [Click here to learn how to use it](https://github.com/ElizarVvV/EasyWorldSave/blob/main/learn%20how%20to%20use%20it.md)
 
-# Click here to learn about the issues you may encounter.
+## Click here to learn about the issues you may encounter.
 
