@@ -23,3 +23,11 @@
 > * Behavior Tree
 > * If your components contain values that are not marked with UPROPERTY, the save system will not detect them. UPROPERTY is essential for making data savable. If this tag is missing and the save system cannot capture the related data, you can create your own custom data class in C++ by deriving from USaveBaseData.
 >  (For example, since the Static Mesh inside a UStaticMeshComponent cannot be detected directly, we created the USaveStaticMeshData class to make it savable.)
+
+> ## ⚠️ IMPORTANT INFORMATION:
+> ### Don’t forget to check the sections where you may encounter issues with the plugin. Some problems may only appear after creating a packaged build, so it’s important to test it there as well. I highly recommend reading the entire documentation before using the plugin. If it is used incorrectly, it will not function properly.
+
+# Click here to learn how to use it.
+
+# Click here to learn about the issues you may encounter.
+
