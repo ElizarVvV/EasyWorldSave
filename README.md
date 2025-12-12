@@ -103,9 +103,44 @@
 > 
 > <img width="690" height="220" alt="Screenshot 2025-12-12 220319" src="https://github.com/user-attachments/assets/281b5ae7-56ad-43ba-827f-5f0550b6f38b" />
 >
-> ****Register Save Guild For All Components:**** It adds a SaveGuideline to all components, but it does not generate any IDs.
+> ****Register Save Guild For All Components:**** The adds a SaveGuideline to all components, but it does not generate any IDs.
 >
 > <img width="301" height="21" alt="image" src="https://github.com/user-attachments/assets/53c83194-c4d6-4f58-a262-6e01c9dee44c" />
+>
+> ****Un Register Save Guid For All Components:**** The deletes the SaveGuideline of all components in the scene.
+> 
+> <img width="300" height="19" alt="image" src="https://github.com/user-attachments/assets/e39f957f-66fe-4c91-b51b-4aa19c090150" />
+>
+> ## FEATURES
+>
+> ### UActorSaveComponent Features
+>
+> There are two types of events available inside UActorSaveComponent. You can use these events to handle cases that the system does not support or to extend the functionality of your setup.
+> 
+> <img width="443" height="85" alt="image" src="https://github.com/user-attachments/assets/b58d0e81-5c2f-462c-98f7-267f5b7fb2b3" />
+>
+> ****On Save Prop:**** This event is triggered after the actor has finished saving. It returns the *World Save Game Object Reference*, which you can use to store additional global variables inside the instance.
+> 
+> <img width="223" height="98" alt="image" src="https://github.com/user-attachments/assets/df12d595-7e32-43c8-a2be-bd88bc9b7a77" />
+>
+> ****On Load Prop:**** This event is triggered after the actor has been loaded. It can be very useful in cases where the system does not provide built-in support. For example, if dynamic materials are not supported, you can use this event to create the dynamic material during loading and reapply its values.
+> 
+> <img width="223" height="104" alt="image" src="https://github.com/user-attachments/assets/d27e1d89-d395-4f06-9d81-5af923d8eb5f" />
+>
+> ### You can create a child class of the World Save Manager.
+>
+> After creating your own custom class and assigning it as the Manager Class in the Project Settings, you can take advantage of many additional features.
+> 
+> <img width="612" height="217" alt="image" src="https://github.com/user-attachments/assets/83f7df9d-dfdd-4c82-bd90-f0dd62f320ee" />
+>
+> there are many events you can use. We won’t go over each one individually, but we will provide an example.
+> 
+> <img width="559" height="264" alt="image" src="https://github.com/user-attachments/assets/30ff3548-2a95-45cd-a176-32e63befa73a" />
+> 
+> ### FUNCTIONS
+> 
+
+
 
 
 
