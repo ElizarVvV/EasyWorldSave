@@ -71,5 +71,34 @@
 >
 > You need to add a SaveGuideline inside the UActorSaveComponent. You can add it from the Components panel by selecting ActorSave in the Details panel.
 > 
-> <img width="711" height="56" alt="image" src="https://github.com/user-attachments/assets/8ef237a4-44bc-4418-8f6d-90cebcf21cea" />
+> <img width="711" height="56" alt="image" src="https://github.com/user-attachments/assets/8ef237a4-44bc-4418-8f6d-90cebcf21cea" />>
+>
+> **For actors and components placed in the world:**
+>
+> ****Information:**** You do not need to add a UActorSaveComponent to actors that are already placed in the world. However, if you don’t add it, the actor itself will not be saved. Even so, any components inside the actor will still be saved if you added a SaveGuideline to them. This works because every component has its own unique ID.
+>
+> If you want to save the actor's properties, you need to add UActorSaveComponent and also add SaveGuideline.
+> 
+> <img width="695" height="165" alt="Screenshot 2025-12-12 214349" src="https://github.com/user-attachments/assets/18446db5-f3e8-4d25-9131-9edebb7da3d4" />
+>
+> <img width="711" height="56" alt="Screenshot 2025-12-12 213512" src="https://github.com/user-attachments/assets/7ab892c7-c309-4b80-9021-292dbd652998" />
+>
+> If you want to save the components inside the actor, it is enough to add a SaveGuideline to them. If you do not add it, those components will not be saved.
+>
+> ****You need to create an ID for actors that already exist in the world:****
+>
+> Open the Tools → Miscellaneous → EasyWorldSave window.
+> 
+> <img width="405" height="38" alt="image" src="https://github.com/user-attachments/assets/4610aec3-b7cd-4307-8f57-2afe826bee46" />
+>
+> You will see three buttons. These buttons run asynchronously and use multiple CPU cores, allowing you to manage ID operations in bulk quickly and efficiently.
+> 
+> <img width="324" height="107" alt="image" src="https://github.com/user-attachments/assets/9462a515-739c-4ea3-89b2-566dcf90e4a3" />
+>
+> ****Generate Save Guid For Save Guideline:**** It generates IDs for all SaveGuidelines in the scene. If you do not generate these IDs, you will run into issues, so always make sure that none of your SaveGuidelines are missing an ID.
+>
+> <img width="308" height="24" alt="image" src="https://github.com/user-attachments/assets/45a2354b-9bcb-43a4-bd8e-79acc7d0ead5" />
+
+
+
 
