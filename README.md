@@ -136,6 +136,24 @@
 > there are many events you can use. We won’t go over each one individually, but we will provide an example.
 > 
 > <img width="559" height="264" alt="image" src="https://github.com/user-attachments/assets/30ff3548-2a95-45cd-a176-32e63befa73a" />
+>
+> For example, I’m using a different UObject-based plugin that also needs to be saved. By using the events, I ensure that both systems are saved and loaded in sequence.
+> 
+> <img width="634" height="712" alt="image" src="https://github.com/user-attachments/assets/181f4acd-2017-4f9c-9860-7d3f034ff855" />
+>
+> It contains the slots you want to use by default.
+> 
+> <img width="381" height="40" alt="image" src="https://github.com/user-attachments/assets/53a70b5f-4cdd-4585-8994-45f8ae163dfc" />
+>
+> ### World Save Game
+>
+> By creating a child class from your World Save Game Object, you can define the object that will be used during save and load. This object can contain anything you need at its core, making it useful for storing global values.
+>
+> <img width="612" height="208" alt="image" src="https://github.com/user-attachments/assets/5b77747a-e1b6-4f08-86c7-ee0b2c7d55cf" />
+>
+> To use it, it is enough to change the Save Game Class from within the World Save Manager you created.
+> 
+> <img width="799" height="58" alt="image" src="https://github.com/user-attachments/assets/20954e9e-eaa2-411d-9fd2-630f24b1a3d9" />
 > 
 > ### FUNCTIONS
 > 
