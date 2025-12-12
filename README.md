@@ -21,11 +21,12 @@
 > * Dynamic Material
 > * Animation Blueprint
 > * Behavior Tree
+> * Runtime Add Or Remove UActorComponent
 > * If your components contain values that are not marked with UPROPERTY, the save system will not detect them. UPROPERTY is essential for making data savable. If this tag is missing and the save system cannot capture the related data, you can create your own custom data class in C++ by deriving from USaveBaseData.
 >  (For example, since the Static Mesh inside a UStaticMeshComponent cannot be detected directly, we created the USaveStaticMeshData class to make it savable.)
 
 > ## ⚠️ IMPORTANT INFORMATION:
-> ### Don’t forget to check the sections where you may encounter issues with the plugin. Some problems may only appear after creating a packaged build, so it’s important to test it there as well. I highly recommend reading the entire documentation before using the plugin. If it is used incorrectly, it will not function properly.
+> **Don’t forget to check the sections where you may encounter issues with the plugin. Some problems may only appear after creating a packaged build, so it’s important to test it there as well. I highly recommend reading the entire documentation before using the plugin. If it is used incorrectly, it will not function properly.**
 
 > ## HOW TO USE?:
 > ### Save Method:
@@ -39,5 +40,36 @@
 >
 > By setting a Persist Level, you can choose in which maps the system should be created. If you leave it empty, it will automatically be created in all maps, and you don’t need to do anything else.
 > <img width="1128" height="91" alt="image" src="https://github.com/user-attachments/assets/70263c37-2fea-4993-a616-79ceaa671b80" />
+>
+> ### FullReconstruct (Recommended)
+> 
+> **How does it work?**
+> 
+> Actors that exist in the level from the start and actors that are spawned during runtime are two different categories, and it is important to distinguish between them. If an actor has a UActorSaveComponent, the save system collects both types of actors together and treats all of them as spawned actors. Because of this, during the load process, the actors that originally existed in the level are removed and recreated. Even if they were already present in the world, the system handles them as if they were newly spawned.
+> 
+> **How to use?**
+> 
+> Adding a UActorSaveComponent to an actor is enough for it to be included in the save system. However, keep in mind that if you add this component to an actor that already exists in the world from the level editor (not through Blueprint or C++), it will not work. If you need this to function properly, you should use HybridConstruct.
+> 
+> <img width="512" height="174" alt="Screenshot 2025-12-12 210100" src="https://github.com/user-attachments/assets/cfd2a1b1-12d0-4f53-af74-36d4f2d67913" />
+>
+> ### HybridConstruct (Legacy)
+>
+> **How does it work?**
+> 
+> Actors and components that are already placed in the world are treated differently from those created through Actor Blueprints or C++. These two categories are saved, loaded, and collected in different ways. Every actor and component has its own unique ID, and actors that already exist in the level are never deleted during loading. Instead, the system loads data directly onto them. This also ensures that components you added from the level editor are properly saved and restored.
+>
+> **How to use?**
+>
+> Actors that are placed in the world and actors that are spawned during runtime are treated as two separate categories. Because of this, there are two steps you need to follow.
+>
+> **For spawned actors:**
+> 
+> You need to add a UActorSaveComponent to the actor. This component will automatically generate a unique ID for the actor and all of its components. Because of this, make sure you do not manually add any Save Guideline components to the components inside it.
+> 
+> <img width="512" height="174" alt="Screenshot 2025-12-12 210100" src="https://github.com/user-attachments/assets/cfd2a1b1-12d0-4f53-af74-36d4f2d67913" />
+>
+> You need to add a SaveGuideline inside the UActorSaveComponent. You can add it from the Components panel by selecting ActorSave in the Details panel.
+> 
+> <img width="711" height="56" alt="image" src="https://github.com/user-attachments/assets/8ef237a4-44bc-4418-8f6d-90cebcf21cea" />
 
-> ### FullReconstruct 
