@@ -27,7 +27,17 @@
 > ## ⚠️ IMPORTANT INFORMATION:
 > ### Don’t forget to check the sections where you may encounter issues with the plugin. Some problems may only appear after creating a packaged build, so it’s important to test it there as well. I highly recommend reading the entire documentation before using the plugin. If it is used incorrectly, it will not function properly.
 
-## [Click here to learn how to use it](https://github.com/ElizarVvV/EasyWorldSave/blob/main/learn%20how%20to%20use%20it.md)
+> ## HOW TO USE?:
+> ### Save Method:
+> There are two different saving methods: ***FullReconstruct*** and ***HybridConstruct***.
+> Both work in different ways and each has its own advantages and disadvantages. FullReconstruct is the newer and recommended method, but HybridConstruct has been tested more extensively.
+> 
+> <img width="172" height="47" alt="image" src="https://github.com/user-attachments/assets/d0d1b53c-ae95-4696-805c-b835e5c29f5a" />
+>
+> To choose the method you want, simply go to ***Project Settings → Engine → EasyWorldSave → Manager Class*** and change it.
+> <img width="1166" height="184" alt="image" src="https://github.com/user-attachments/assets/8ad3c1ef-fe78-4eee-9166-d835bd5f6cf0" />
+>
+> By setting a Persist Level, you can choose in which maps the system should be created. If you leave it empty, it will automatically be created in all maps, and you don’t need to do anything else.
+> <img width="1128" height="91" alt="image" src="https://github.com/user-attachments/assets/70263c37-2fea-4993-a616-79ceaa671b80" />
 
-## Click here to learn about the issues you may encounter.
-
+> ### FullReconstruct 
