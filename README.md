@@ -154,8 +154,62 @@
 > To use it, it is enough to change the Save Game Class from within the World Save Manager you created.
 > 
 > <img width="799" height="58" alt="image" src="https://github.com/user-attachments/assets/20954e9e-eaa2-411d-9fd2-630f24b1a3d9" />
+>
+> ### Player Save
+>
+> If you want the player to be saved together with the world, make sure that Custom Player Save is disabled under:
+>
+> Project Settings → Engine → EasyWorldSave → Custom Player Save
+>
+> When Custom Player Save is disabled, the player is loaded automatically using Get Player Pawn.
+>
+> However, if you are developing an online/multiplayer game or if you want to save the character independently from the world, this process must be handled manually. In that case, you should enable Custom Player Save and implement your own save/load logic.
+>
+> <img width="944" height="31" alt="image" src="https://github.com/user-attachments/assets/8551646f-e34f-4a2e-b6c3-af16a2f8e92b" />
+>
+> You need to add an ActorSaveComponent to the player in order for it to be saved.
 > 
-> ### FUNCTIONS
+> <img width="512" height="24" alt="image" src="https://github.com/user-attachments/assets/4f7e4bae-1692-43f6-87fa-cc2cb1a14099" />
+>
+> If you are using Full Reconstruct, you must enable the Native option in the component’s settings. This ensures that the character is not deleted during the load process.
+> 
+> <img width="502" height="30" alt="image" src="https://github.com/user-attachments/assets/4801016d-5b49-4af7-8eb5-ac4e56a3abe3" />
+> 
+> ## FUNCTIONS
+>
+> ### Get World Save Manager
+>
+> This function is used to retrieve the World Save Manager.
+> If you have created your own World Save Manager in a custom class, you can obtain it by casting.
+> Most of the available functions should be called through this manager, using the returned reference to perform save and load operations.
+> 
+> <img width="233" height="84" alt="image" src="https://github.com/user-attachments/assets/3809e106-1220-4980-b92f-42dccbcebdbc" />
+>
+> ### Save / Load World
+> 
+> This function should be used to save or load the world.
+> If you want to work with save slots, that functionality is handled through a separate function.
+> 
+> <img width="525" height="204" alt="image" src="https://github.com/user-attachments/assets/88f153d3-7a1a-403c-ab22-b771cd642fe7" />
+>
+> ### Set Save Slot Or Index
+>
+> With these two functions, you can configure the Save Slot or User Index.
+> If no configuration is provided, the default values will be used automatically.
+> 
+> <img width="563" height="250" alt="image" src="https://github.com/user-attachments/assets/964b65dd-21d4-40e9-8ff9-96ce718e7493" />
+>
+> ### Get Is First Saved
+>
+> This function returns true if the world has been previously saved.
+> A common use case is during BeginPlay. For example, if you are spawning objects in BeginPlay, they will be spawned every time the game starts. You can prevent this behavior by checking whether a save already exists using this function.
+> This function can safely be used in BeginPlay because Pre-Load is executed while the world is being created, before the actual load process begins.
+>
+> ****Important warning:****
+> When this function is used and a saved file already exists, the function will still be executed.
+> If this behavior is not desired, you must delete the existing save file.
+> 
+> <img width="484" height="114" alt="image" src="https://github.com/user-attachments/assets/cc6ec20c-43e0-4b5b-b684-8909a0551ce5" />
 > 
 
 
