@@ -247,7 +247,31 @@
 >
 > We also provide a lower-level library related to this system, which allows for more advanced and detailed functionality.
 > It can be used in Blueprints as well, but it will not be covered here.
+>
+> # Potential Problems
 > 
+> ### HybridConstruct Map Transitions - Only Editor
+> * When using ****HybridConstruct****, save and load operations may not function correctly in the Editor when switching between different maps. This limitation applies only to the Editor; packaged builds are not affected and work correctly. For testing purposes, perform your operations on the main map and avoid changing maps.
+> 
+> ### BeginPlay
+>
+> 1- When using BeginPlay, do not overlook the fact that it will be executed again after an actor is loaded and reconstructed. Ignoring this behavior can lead to multiple issues.
+>
+> For example, if you perform a spawn operation in BeginPlay, that same logic will run again after the actor is loaded, causing the spawn operation to execute once more. This can make it appear as if there is an error in the system, while it is actually expected behavior.
+>
+> To prevent this issue, you can use Get Is First Saved. By checking whether the actor has been previously saved, you can ensure that the related logic is executed only once and does not run again after loading.
+>
+> 2- ****Loaded Data Availability During BeginPlay:**** Due to the load execution order, the load process is not completed at the time actors’ BeginPlay functions are called. As a result, loaded data is not yet available during BeginPlay, and attempting to access it at this stage will not work as expected.
+>
+> To properly access loaded data, you must use OnLoadProp inside the UActorSaveComponent. This callback is executed after the load process has completed, ensuring that all saved properties are correctly restored and accessible.
+>
+> 3- ****Executing Logic Only Once After Actor Spawn:**** If you need a piece of logic to run only once immediately after an actor is spawned, you must trigger a custom event inside the actor at the moment it is spawned. Due to the execution behavior of BeginPlay and OnLoadProp, neither of these callbacks is suitable for this purpose.
+
+> Using Get Is First Saved will also not fully solve this case. Since this check prevents execution when a saved record already exists, the logic will not run again once the actor has been previously saved.
+
+> For example, if you rely on Get Is First Saved inside BeginPlay to execute a function and then spawn the actor, this setup will never run as expected. Because the actor already has a saved state, the logic guarded by Get Is First Saved will be skipped entirely.
+
+> To avoid this issue, you should execute a dedicated custom event immediately after the actor is spawned, ensuring that the logic runs exactly once at the correct time.
 
 
 
