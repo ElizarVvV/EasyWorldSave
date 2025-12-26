@@ -210,6 +210,18 @@
 > If this behavior is not desired, you must delete the existing save file.
 > 
 > <img width="484" height="114" alt="image" src="https://github.com/user-attachments/assets/cc6ec20c-43e0-4b5b-b684-8909a0551ce5" />
+>
+> ### Does Save Game Exist World Default
+>
+> This function checks whether a save file exists for the currently selected save slot and user index.
+> 
+> <img width="568" height="153" alt="image" src="https://github.com/user-attachments/assets/d4e9f48e-7ce7-43dd-b430-e0653ed89887" />
+>
+> ### Default Slot Delete
+>
+> This function deletes the world save associated with the currently selected save slot and user index.
+> 
+> <img width="496" height="171" alt="image" src="https://github.com/user-attachments/assets/819c149f-609c-4021-968c-221018d67f4e" />
 > 
 
 
