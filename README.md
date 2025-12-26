@@ -222,6 +222,31 @@
 > This function deletes the world save associated with the currently selected save slot and user index.
 > 
 > <img width="496" height="171" alt="image" src="https://github.com/user-attachments/assets/819c149f-609c-4021-968c-221018d67f4e" />
+>
+> ## Manual Property Saving
+> 
+> This system allows you to manually save and load your UObjects.
+>
+> ****Save Object To Save Data:**** 
+>
+> Here, you must provide the UObject that needs to be saved as the target.
+> The function will return the object’s data as Property Data (byte array).
+>
+> When you assign a variable to the Property Data input, it will be set by reference when the function is executed.
+>
+> Before performing the save operation, you should create a variable in your World Save Game to store this Property Data.
+> This allows you to use the stored property data during the load process to load the UObject again.
+> 
+> <img width="522" height="236" alt="image" src="https://github.com/user-attachments/assets/577f054b-23e7-4acd-b1a5-fef1d5476e77" />
+>
+> ****Load Object To Save Data:**** 
+> 
+> This function loads the provided Property Data into the Target reference during the load process, ensuring that all properties are restored correctly.
+> 
+> <img width="510" height="246" alt="image" src="https://github.com/user-attachments/assets/1b6cdc81-e0c2-443e-b85c-58a1069f5e2f" />
+>
+> We also provide a lower-level library related to this system, which allows for more advanced and detailed functionality.
+> It can be used in Blueprints as well, but it will not be covered here.
 > 
 
 
