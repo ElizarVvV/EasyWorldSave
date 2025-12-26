@@ -288,7 +288,35 @@
 > <img width="479" height="32" alt="image" src="https://github.com/user-attachments/assets/7a430aee-7a05-4e4a-ac32-0cf962138864" />
 >
 > <img width="336" height="29" alt="image" src="https://github.com/user-attachments/assets/9c897887-213b-4860-b9a8-cf21594ddd36" />
+
+> # Differences Between HybridConstruct and FullReconstruct
 >
+> ### Save Requirements
+>
+> When using HybridConstruct, components do not necessarily require a UActorSaveComponent to be saved.
+> However, when using FullReconstruct, the actor itself must be saved, which makes the use of UActorSaveComponent mandatory.
+>
+> ### Ease of Use and Features
+>
+> FullReconstruct is generally easier to use. It focuses on solving common problems such as Actor ID management and related workflow issues.
+> While it does not offer as many features as HybridConstruct, these additional features are usually not required in most projects.
+>
+> ### Maturity and Stability
+>
+> HybridConstruct has already been used in shipped projects and is considered more mature.
+> FullReconstruct is newer and currently in an experimental phase. Despite this, FullReconstruct is the currently recommended approach.
+>
+> ### Component Handling Differences
+>
+> When using HybridConstruct, adding components to an actor directly in the Editor is supported, and those components will be included in save/load operations.
+>
+> In contrast, when using FullReconstruct, components must be added directly through the actor itself. Editor-added components are not supported in the same way. This limitation can make it more difficult to save objects in the level that do not already belong to a dedicated actor.
+
+> # Support
+>
+> ### Mail: contact@voidy.games
+>
+> ### Discord: https://discord.gg/mDw73e9kEu
 > 
 
 
