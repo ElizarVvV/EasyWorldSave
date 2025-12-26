@@ -247,7 +247,7 @@
 >
 > We also provide a lower-level library related to this system, which allows for more advanced and detailed functionality.
 > It can be used in Blueprints as well, but it will not be covered here.
->
+
 > # Potential Problems
 > 
 > ### HybridConstruct Map Transitions - Only Editor
@@ -266,12 +266,30 @@
 > To properly access loaded data, you must use OnLoadProp inside the UActorSaveComponent. This callback is executed after the load process has completed, ensuring that all saved properties are correctly restored and accessible.
 >
 > 3- ****Executing Logic Only Once After Actor Spawn:**** If you need a piece of logic to run only once immediately after an actor is spawned, you must trigger a custom event inside the actor at the moment it is spawned. Due to the execution behavior of BeginPlay and OnLoadProp, neither of these callbacks is suitable for this purpose.
-
+>
 > Using Get Is First Saved will also not fully solve this case. Since this check prevents execution when a saved record already exists, the logic will not run again once the actor has been previously saved.
-
+>
 > For example, if you rely on Get Is First Saved inside BeginPlay to execute a function and then spawn the actor, this setup will never run as expected. Because the actor already has a saved state, the logic guarded by Get Is First Saved will be skipped entirely.
-
+>
 > To avoid this issue, you should execute a dedicated custom event immediately after the actor is spawned, ensuring that the logic runs exactly once at the correct time.
+>
+> ###  Duplicate Actor
+> 
+> When using HybridConstruct, if an actor placed in the world does not have a valid Actor ID, it can result in the actor being spawned twice, leading to duplicate instances in the scene.
+>
+> ### Packaged Build Issues Caused by Non-Transient References
+>
+> If the system does not function correctly in a packaged build, the issue is most likely caused by references that are not marked as transient.
+>
+> This may not cause any problems in the Editor, but failing to mark UObject references or related properties as Transient can lead to unexpected behavior or errors in packaged builds.
+>
+> To avoid this issue, ensure that all runtime-only UObject references are properly marked as Transient.
+> 
+> <img width="479" height="32" alt="image" src="https://github.com/user-attachments/assets/7a430aee-7a05-4e4a-ac32-0cf962138864" />
+>
+> <img width="336" height="29" alt="image" src="https://github.com/user-attachments/assets/9c897887-213b-4860-b9a8-cf21594ddd36" />
+>
+> 
 
 
 
