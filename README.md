@@ -289,7 +289,7 @@
 >
 > <img width="336" height="29" alt="image" src="https://github.com/user-attachments/assets/9c897887-213b-4860-b9a8-cf21594ddd36" />
 
-> # Differences Between HybridConstruct and FullReconstruct
+> # Differences HybridConstruct and FullReconstruct
 >
 > ### Save Requirements
 >
